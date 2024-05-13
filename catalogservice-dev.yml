@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: customerservice
+  datasource:
+    url: jdbc:postgresql://localhost:5432/crmcustomer
+    username: postgres
+    password: test1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    instance-id: ${spring.application.name}:${instanceId:${random.value}}
+    preferIpAddress: true
