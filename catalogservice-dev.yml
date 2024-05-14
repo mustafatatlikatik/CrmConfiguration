@@ -2,7 +2,7 @@ server:
   port: 8083
 spring:
   application:
-    name: customerservice
+    name: catalog-service
   datasource:
     url: jdbc:postgresql://localhost:5433/crmcatalog
     username: postgres
