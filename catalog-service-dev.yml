@@ -4,7 +4,7 @@ spring:
   application:
     name: catalog-service
   datasource:
-    url: jdbc:postgresql://localhost:5433
+    url: jdbc:postgresql://localhost:5433/crmcatalog
     username: postgres
     password: 12345
     driver-class-name: org.postgresql.Driver
