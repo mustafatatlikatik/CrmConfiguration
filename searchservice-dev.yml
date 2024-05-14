@@ -6,7 +6,8 @@ spring:
   data:
     mongodb:
       database: crmsearchdb
-      uri: mongodb://localhost:27017
+      port: 27017
+      host: localhost
   kafka:
     consumer:
       auto-offset-reset: earliest
