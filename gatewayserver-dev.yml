@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: catalogservice
+            uri: lb://catalogservice
+            predicates:
+              - Path=/api/v1/catalogproductoffers/**
+          - id: eureka
+            uri: http://localhost:8888
+            predicates:
+              - Path=/eureka/web
+            filters:
+              - SetPath=/    
+server:
+  port: 8001
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+    registerWithEureka: true
+    fetchRegistry: true              
