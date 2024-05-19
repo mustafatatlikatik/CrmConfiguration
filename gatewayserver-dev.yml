@@ -11,7 +11,7 @@ server:
   port: 8001
 spring:
   application:
-    name: api-gateway
+    name: gatewayserver
   cloud:
     gateway:
       discovery:
