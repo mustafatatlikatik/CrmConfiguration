@@ -1,0 +1,39 @@
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+  instance:
+    prefer-ip-address: true
+server:
+  port: 8001
+spring:
+  application:
+    name: gatewayserver
+  cloud:
+    gateway:
+      default-filters:
+        - RemoveRequestHeader=Origin
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+            - "http://localhost:8081"
+            - "http://localhost:8082"
+            - "http://localhost:8083"
+            - "http://localhost:8084"
+            - "http://localhost:4200"
+            allowCredentials: true
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+              - GET
+              - OPTIONS
+            allowedHeaders: "*"
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
